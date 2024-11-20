@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Login Section -->
+        <div id="loginSection" class="section active">
+            <div class="login-container">
+                <div class="login-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    <h1>Student Attendance Portal</h1>
+                </div>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" required>
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="section">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    <span>Attendance Portal</span>
+                </div>
+                <div class="nav-user">
+                    <span id="userInfo"></span>
+                    <button id="logoutBtn" class="btn-secondary">Logout</button>
+                </div>
+            </nav>
+            
+            <div class="dashboard-container">
+                <div class="sidebar">
+                    <button class="nav-item active" data-view="attendance">Attendance</button>
+                    <button class="nav-item" data-view="leaves">Leave Requests</button>
+                    <button class="nav-item admin-only" data-view="users">Manage Users</button>
+                </div>
+                
+                <main class="main-content">
+                    <!-- Attendance View -->
+                    <div id="attendanceView" class="view active">
+                        <h2>Attendance Overview</h2>
+                        <div class="attendance-stats">
+                            <div class="stat-card">
+                                <h3>Present Days</h3>
+                                <p id="presentDays">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Absent Days</h3>
+                                <p id="absentDays">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Leave Days</h3>
+                                <p id="leaveDays">0</p>
+                            </div>
+                        </div>
+                        <div class="attendance-chart">
+                            <canvas id="attendanceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Leave Requests View -->
+                    <div id="leavesView" class="view">
+                        <h2>Leave Requests</h2>
+                        <div class="leave-form student-only">
+                            <h3>Submit Leave Request</h3>
+                            <form id="leaveRequestForm">
+                                <div class="form-group">
+                                    <label for="startDate">Start Date</label>
+                                    <input type="date" id="startDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endDate">End Date</label>
+                                    <input type="date" id="endDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reason">Reason</label>
+                                    <textarea id="reason" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Request</button>
+                            </form>
+                        </div>
+                        <div id="leaveRequestsList" class="requests-list"></div>
+                    </div>
+
+                    <!-- User Management View -->
+                    <div id="usersView" class="view">
+                        <h2>User Management</h2>
+                        <div class="user-form">
+                            <h3>Add New User</h3>
+                            <form id="addUserForm">
+                                <div class="form-group">
+                                    <label for="userName">Name</label>
+                                    <input type="text" id="userName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userEmail">Email</label>
+                                    <input type="email" id="userEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userRole">Role</label>
+                                    <select id="userRole" required>
+                                        <option value="student">Student</option>
+                                        <option value="faculty">Faculty</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary">Add User</button>
+                            </form>
+                        </div>
+                        <div id="usersList" class="users-list"></div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
