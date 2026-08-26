@@ -17,6 +17,9 @@ import hmac
 import base64
 import os
 
+from pathlib import Path
+from fastapi.responses import FileResponse
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB_URL = f"sqlite:///{BASE_DIR / 'edutrack.db'}"
 engine = create_engine(DB_URL, connect_args={"check_same_thread": False})
@@ -255,6 +258,10 @@ seed()
 
 app = FastAPI(title="EduTrack API", version="1.0.0")
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "frontend")), name="static")
+
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 @app.get("/")
 def home():
