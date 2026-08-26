@@ -258,7 +258,7 @@ app.mount("/static", StaticFiles(directory=str(BASE_DIR / "frontend")), name="st
 
 @app.get("/")
 def home():
-    return FileResponse(BASE_DIR / "frontend" / "main.html")
+    return FileResponse(BASE_DIR / "frontend" / "index.html")
 
 class LoginIn(BaseModel):
     email: str
