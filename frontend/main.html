@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EduTrack — Academic Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="toast-root"></div>
+
+  <section id="login-view" class="login-shell">
+    <div class="login-brand">
+      <div class="brand-mark">E</div>
+      <div><strong>EduTrack</strong><span>Smart Academic Management</span></div>
+    </div>
+    <div class="login-card">
+      <div class="eyebrow">SECURE ACCESS</div>
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to your academic workspace.</p>
+      <div class="role-switch">
+        <button class="role-btn active" data-role="student">🎓 Student</button>
+        <button class="role-btn" data-role="faculty">👨‍🏫 Faculty</button>
+        <button class="role-btn" data-role="admin">🛡️ Admin</button>
+      </div>
+      <form id="login-form">
+        <label>Email<input id="email" type="email" required value="student@edutrack.local"></label>
+        <label>Password<div class="password-wrap"><input id="password" type="password" required value="student123"><button type="button" id="show-password">Show</button></div></label>
+        <button class="primary full" type="submit">Sign in <span>→</span></button>
+      </form>
+      <div class="demo-note">Demo accounts are listed in README.md.</div>
+    </div>
+  </section>
+
+  <section id="app-view" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">E</div><div><strong>EduTrack</strong><small>Academic OS</small></div>
+      </div>
+      <div class="user-mini"><div class="avatar" id="sidebar-avatar">KT</div><div><strong id="sidebar-name">User</strong><span id="sidebar-role">Role</span></div></div>
+      <nav id="nav"></nav>
+      <button class="logout" id="logout">↪ Sign out</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu">☰</button>
+        <div><span class="muted" id="breadcrumb">Dashboard</span><h2 id="page-title">Dashboard</h2></div>
+        <div class="top-actions">
+          <button class="icon-btn" id="notif-btn">🔔<span id="notif-count" class="badge hidden">0</span></button>
+          <div class="avatar" id="top-avatar">KT</div>
+        </div>
+      </header>
+      <div id="page" class="page"></div>
+    </main>
+  </section>
+
+  <div id="modal-root"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
