@@ -2,6 +2,8 @@
 
 A clean full-stack role-based academic management platform for Students, Faculty, and Administrators.
 
+Link: https://studentattendancemangementsystem.netlify.app
+
 ## Stack
 - Backend: FastAPI + SQLAlchemy + SQLite
 - Frontend: HTML5 + CSS3 + Vanilla JavaScript
